@@ -38,6 +38,10 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
+            <header className="relative w-full h-64 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-full bg-sky bg-repeat-x animate-scroll-sky"></div>
+              <div className="absolute bottom-0 left-0 w-full h-16 bg-grass bg-repeat-x animate-scroll-grass"></div>
+            </header>
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
