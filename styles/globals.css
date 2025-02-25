@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes scroll-sky {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 0;
+  }
+}
+
+@keyframes scroll-grass {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1000px 0;
+  }
+}
+
+.bg-sky {
+  background-image: url('/sky.png');
+  background-size: cover;
+}
+
+.bg-grass {
+  background-image: url('/grass.png');
+  background-size: cover;
+}
+
+.animate-scroll-sky {
+  animation: scroll-sky 20s linear infinite;
+}
+
+.animate-scroll-grass {
+  animation: scroll-grass 10s linear infinite;
+}
