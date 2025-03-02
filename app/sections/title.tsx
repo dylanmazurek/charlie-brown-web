@@ -29,7 +29,7 @@ export default function TitleSection() {
       <div className="relative z-20 flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-4">
         <div className="mb-8 px-16">
           <Image 
-            src="/logo.svg" 
+            src="https://dylanmazurek.github.io/charlie-brown-web/logo.svg" 
             alt="Charlie Brown Logo" 
             width={340}
             height={227}
@@ -59,7 +59,7 @@ export default function TitleSection() {
       <div className="absolute bottom-[90px] left-0 w-full z-30">
         <div className="w-full" style={{ 
           height: "20px",
-          backgroundImage: "url('/grass.svg')", 
+          backgroundImage: "url('https://dylanmazurek.github.io/charlie-brown-web/grass.svg')", 
           backgroundRepeat: "repeat-x",
           backgroundPosition: "bottom"
         }} />
