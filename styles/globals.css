@@ -2,38 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes scroll-sky {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -1000px 0;
-  }
-}
-
-@keyframes scroll-grass {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -1000px 0;
-  }
+/* Updated modern color scheme */
+:root {
+  --charlie-yellow: #FFE659;
+  --charlie-blue: #4A72D1;
+  --charlie-green: #3E935B;
+  --btn-gradient: linear-gradient(to right, #4A72D1, #5C82D9);
 }
 
 .bg-sky {
-  background-image: url('/sky.png');
-  background-size: cover;
+  background-color: var(--charlie-blue);
+  height: 100%;
 }
 
 .bg-grass {
-  background-image: url('/grass.png');
-  background-size: cover;
+  background-color: var(--charlie-green);
 }
 
-.animate-scroll-sky {
-  animation: scroll-sky 20s linear infinite;
+/* Background color for the website */
+.charlie-brown-bg {
+  background-color: var(--charlie-yellow);
+  opacity: 0.95;
 }
 
-.animate-scroll-grass {
-  animation: scroll-grass 10s linear infinite;
+/* Button styles */
+.btn-charlie {
+  @apply px-6 py-3 rounded-full font-bold transition-all duration-300;
+  background: var(--btn-gradient);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-charlie:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-charlie:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
 }
