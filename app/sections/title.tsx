@@ -7,20 +7,20 @@ export default function TitleSection() {
       <div className="absolute top-0 left-0 w-full h-[calc(100%-6rem)] bg-sky z-0 overflow-hidden">
         {/* Cloud Animation */}
         <div className="absolute inset-0 pointer-events-none opacity-90">
-          <div style={{ position: 'absolute', left: '-10%', top: '10%', animation: 'animateCloud 35s linear infinite', animationDelay: '-5s' }}>
-              <div className="cloud"></div>
+          <div style={{ position: 'absolute', left: '-10%', top: '0%', animation: 'animateCloud 35s linear infinite', animationDelay: '-5s' }}>
+            <div className="cloud" />
           </div>
-          <div style={{ position: 'absolute', left: '20%', top: '30%', animation: 'animateCloud 45s linear infinite', animationDelay: '-25s' }}>
-              <div className="cloud"></div>
+          <div style={{ position: 'absolute', left: '40%', top: '5%', animation: 'animateCloud 40s linear infinite', animationDelay: '-15s' }}>
+              <div className="cloud" />
           </div>
-          <div style={{ position: 'absolute', left: '40%', top: '15%', animation: 'animateCloud 40s linear infinite', animationDelay: '-15s' }}>
-              <div className="cloud"></div>
+          <div style={{ position: 'absolute', left: '-5%', top: '36%', animation: 'animateCloud 45s linear infinite', animationDelay: '-25s' }}>
+            <div className="cloud" />
           </div>
           <div style={{ position: 'absolute', left: '0%', top: '60%', animation: 'animateCloud 50s linear infinite', animationDelay: '-30s' }}>
-              <div className="cloud"></div>
+            <div className="cloud" />
           </div>
-          <div style={{ position: 'absolute', left: '30%', top: '45%', animation: 'animateCloud 38s linear infinite', animationDelay: '-12s' }}>
-              <div className="cloud"></div>
+          <div style={{ position: 'absolute', left: '-20%', top: '45%', animation: 'animateCloud 38s linear infinite', animationDelay: '-12s' }}>
+            <div className="cloud" />
           </div>
         </div>
       </div>
@@ -54,6 +54,16 @@ export default function TitleSection() {
       
       {/* Grass background */}
       <div className="absolute bottom-0 left-0 w-full h-24 bg-grass z-20" />
+      
+      {/* Comic-style grass SVG repeating across the width - at the top of green grass */}
+      <div className="absolute bottom-[90px] left-0 w-full z-30">
+        <div className="w-full" style={{ 
+          height: "20px",
+          backgroundImage: "url('/grass.svg')", 
+          backgroundRepeat: "repeat-x",
+          backgroundPosition: "bottom"
+        }} />
+      </div>
       
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">

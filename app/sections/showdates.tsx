@@ -22,8 +22,19 @@ export default function ShowDatesSection() {
     { type: "Group (6+)", price: "$25.50" },
   ];
 
+  // Function to format the date without the year
+  const formatDate = (dateStr: string) => {
+    const [month, day] = dateStr.split(" ");
+    return (
+      <span>
+        {month} {day.replace(",", "")}
+      </span>
+    );
+  };
+
   return (
     <section id="shows" className="py-20 bg-white">
+      {/* Comic strip style grass lines */}
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[var(--charlie-blue)] mb-2">Show Dates</h2>
@@ -35,23 +46,20 @@ export default function ShowDatesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-12">
           {shows.map((show, index) => (
             <div
               key={index}
-              className="p-6 rounded-lg bg-gray-50 shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="p-3 rounded-lg bg-gray-50 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="bg-[var(--charlie-blue)] rounded-full w-16 h-16 flex items-center justify-center mb-3">
-                  <span className="text-white text-xl font-bold">
-                    {show.date.split(",")[0].split(" ")[1]}
-                  </span>
-                </div>
-                <h3 className="text-lg font-bold mb-1">{show.day}</h3>
-                <p className="text-gray-600 mb-1">{show.date}</p>
-                <p className="text-gray-800 font-semibold">{show.time}</p>
-                <button className="mt-4 btn-charlie text-white py-2 px-5 rounded-md text-sm">
-                  Book Now
+                <p className="text-sm font-semibold text-[var(--charlie-blue)] mb-0.5">
+                  {formatDate(show.date)}
+                </p>
+                <h3 className="text-xs text-gray-600 mb-1">{show.day}</h3>
+                <p className="text-sm text-gray-800 font-semibold">{show.time}</p>
+                <button className="mt-2 btn-charlie text-white py-1 px-3 rounded-md text-xs">
+                  Book
                 </button>
               </div>
             </div>

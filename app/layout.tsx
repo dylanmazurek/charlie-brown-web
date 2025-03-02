@@ -41,15 +41,10 @@ export default function RootLayout({
           {/* Footer */}
           <footer className="bg-gray-800 text-white py-8">
             <div className="container mx-auto px-4 text-center">
-              <p className="mb-2">© 2024 You're a Good Man, Charlie Brown - Melbourne Production</p>
+              <p className="mb-2">Website by Dylan Mazurek</p>
               <p className="text-sm text-gray-400">
                 "Peanuts" characters created by Charles M. Schulz. Music and lyrics by Clark Gesner.
               </p>
-              <div className="mt-4 flex justify-center space-x-4">
-                <a href="#" className="hover:text-yellow-400">Contact</a>
-                <a href="#" className="hover:text-yellow-400">Privacy Policy</a>
-                <a href="#" className="hover:text-yellow-400">Terms of Service</a>
-              </div>
             </div>
           </footer>
         </div>
