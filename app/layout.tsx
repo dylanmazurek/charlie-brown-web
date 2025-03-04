@@ -1,30 +1,18 @@
-import "@/styles/globals.css";
-import "@/styles/cloud.css";
-import clsx from "clsx";
-import { Metadata, Viewport } from "next";
 import { fontSans } from "@/config/fonts";
-import { siteConfig } from "@/config/site";
+import "@/styles/cloud.css";
+import "@/styles/globals.css";
+import clsx from "clsx";
+import { Viewport } from "next";
 import Navbar from "./components/navbar";
-
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
 
 export const viewport: Viewport = {
   themeColor: [{ media: "(prefers-color-scheme: light)", color: "#ffe01b" }],
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }) {
   return (
     <html suppressHydrationWarning lang="en" className="scroll-smooth">
