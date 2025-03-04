@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export default function ShowDatesSection() {
   // Show dates from the show details
   const shows = [
@@ -58,9 +60,6 @@ export default function ShowDatesSection() {
                 </p>
                 <h3 className="text-xs text-gray-600 mb-1">{show.day}</h3>
                 <p className="text-sm text-gray-800 font-semibold">{show.time}</p>
-                <button className="mt-2 btn-charlie text-white py-1 px-3 rounded-md text-xs">
-                  Book
-                </button>
               </div>
             </div>
           ))}
@@ -79,7 +78,7 @@ export default function ShowDatesSection() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <button className="btn-charlie text-white py-3 px-8 text-lg">
+            <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
               Purchase Tickets
             </button>
           </div>

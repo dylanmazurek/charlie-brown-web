@@ -1,3 +1,4 @@
+import { siteConfig } from "@/config/site";
 import Image from "next/image";
 
 export default function TitleSection() {
@@ -46,7 +47,7 @@ export default function TitleSection() {
             The MC Showroom, Melbourne
           </p>
           
-          <button className="btn-charlie text-white py-3 px-10 text-lg">
+          <button className="btn-charlie text-white py-3 px-10 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
             Get Tickets
           </button>
         </div>

@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-gray-50">
@@ -33,9 +35,6 @@ export default function AboutSection() {
               <p className="italic text-gray-700 mb-3">
                 'A bright, bubbly and utterly charming musical.' — Weekend Notes
               </p>
-              <p className="italic text-gray-700 mb-3">
-                'Terrific entertainment for anyone who ever was a child!' — Man in Chair
-              </p>
               <p className="italic text-gray-700">
                 'Delightful in every way!' — Lilithia Reviews
               </p>
@@ -52,7 +51,7 @@ export default function AboutSection() {
                 Additional Music and Lyrics by Andrew Lippa.
               </p>
               <div className="mt-8 text-center">
-                <button className="btn-charlie text-white py-3 px-8 text-lg">
+                <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
                   Book Now
                 </button>
               </div>

@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { siteConfig } from "@/config/site";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -71,7 +72,7 @@ export default function Navbar() {
                   Venue
                 </span>
               </Link>
-              <button className="btn-charlie text-white text-sm py-2 px-4">
+              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
                 Get Tickets
               </button>
             </div>
@@ -137,7 +138,7 @@ export default function Navbar() {
                 Venue
               </span>
             </Link>
-            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4">
+            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
               Get Tickets
             </button>
           </div>
