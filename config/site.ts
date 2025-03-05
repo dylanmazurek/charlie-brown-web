@@ -21,13 +21,13 @@ export const openGraph: OpenGraph = {
 }
 
 export const icons: Icons = {
-  icon: "public/favicon.ico",
+  icon: "/favicon.ico",
   apple: [
     {
-      url: "public/apple-touch-icon.png",
+      url: "/apple-touch-icon.png",
       sizes: "180x180",
       rel: "apple-touch-icon",
     }
   ],
-  shortcut: "public/favicon.ico",
+  shortcut: "/favicon.ico",
 }
