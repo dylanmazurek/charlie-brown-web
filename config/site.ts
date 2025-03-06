@@ -23,6 +23,8 @@ export const openGraph: OpenGraph = {
   images: [
     {
       url: "/og-charlie-image.png",
+      width: 1200,
+      height: 630,
       alt: siteConfig.name,
     }
   ],
