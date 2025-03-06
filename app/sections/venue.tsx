@@ -1,5 +1,7 @@
 "use client";
 
+import { GoogleMapsEmbed } from '@next/third-parties/google';
+
 export default function VenueSection() {
   return (
     <section id="venue" className="py-20 bg-white">
@@ -46,8 +48,15 @@ export default function VenueSection() {
           <div className="flex flex-col h-full">
             {/* Embedded map - placeholder */}
             <div className="bg-gray-100 h-64 mb-6 rounded-lg overflow-hidden shadow-md">
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-gray-500 font-medium">Map of Prahran - The MC Showroom</p>
+              <div className="flex w-full h-full items-center justify-center">
+              <GoogleMapsEmbed
+                apiKey="AIzaSyBppKMx5S9-bONjlIXzt1-ffgYbDYX1KPw"
+                mode="place"
+                style="width:100%;height:100%;"
+                height={256}
+                width={600}
+                q="The+MC+Showroom,+Prahran"
+                />
               </div>
             </div>
             

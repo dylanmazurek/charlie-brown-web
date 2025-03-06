@@ -2,6 +2,7 @@ import { fontSans } from "@/config/fonts";
 import { icons, openGraph, siteConfig } from "@/config/site";
 import "@/styles/cloud.css";
 import "@/styles/globals.css";
+import { GoogleTagManager } from '@next/third-parties/google';
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
 import { Event, WithContext } from 'schema-dts';
@@ -55,6 +56,7 @@ export default function RootLayout({
 }) {
     return (
         <html suppressHydrationWarning lang="en" className="scroll-smooth">
+            <GoogleTagManager gtmId="GTM-KCBHKCBR" />
             <head />
             <body
                 className={clsx(
@@ -62,6 +64,7 @@ export default function RootLayout({
                     fontSans.variable,
                 )}
             >
+                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
                 <div className="relative flex flex-col min-h-screen">
                     <Navbar />
                     {children}

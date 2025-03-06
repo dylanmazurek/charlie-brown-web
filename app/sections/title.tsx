@@ -49,7 +49,7 @@ export default function TitleSection() {
             The MC Showroom, Melbourne
           </p>
           
-          <button className="btn-charlie text-white py-3 px-10 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
+          <button className="btn-charlie text-white py-3 px-10 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_self")}>
             Get Tickets
           </button>
         </div>

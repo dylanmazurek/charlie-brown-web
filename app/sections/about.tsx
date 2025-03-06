@@ -53,7 +53,7 @@ export default function AboutSection() {
                 Additional Music and Lyrics by Andrew Lippa.
               </p>
               <div className="mt-8 text-center">
-                <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_blank")}>
+                <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(siteConfig.bookingUrl, "_self")}>
                   Book Now
                 </button>
               </div>

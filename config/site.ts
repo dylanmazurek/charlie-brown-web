@@ -9,7 +9,7 @@ export const siteConfig = {
   name: "You're a Good Man, Charlie Brown",
   description:"A musical comedy with music and lyrics by Clark Gesner, based on the characters created by Charles M. Schulz in his comic strip Peanuts.",
   keywords: ["musical", "comedy", "peanuts", "charlie brown", "snoopy"],
-  bookingUrl: "https://www.trybooking.com/events/landing/1320175",
+  bookingUrl: "https://www.trybooking.com/events/1320175/sessions",
 };
 
 export const openGraph: OpenGraph = {
