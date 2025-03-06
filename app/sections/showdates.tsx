@@ -1,44 +1,10 @@
 "use client";
 
-import { siteConfig } from "@/config/site";
+import { shows, siteConfig, tickets } from "@/config/site";
 
 export default function ShowDatesSection() {
-  // Show dates from the show details
-  const shows = [
-    { date: "Apr 8, 2025", time: "10:00 AM", day: "Tuesday" },
-    { date: "Apr 8, 2025", time: "12:00 PM", day: "Tuesday" },
-    { date: "Apr 9, 2025", time: "10:00 AM", day: "Wednesday" },
-    { date: "Apr 9, 2025", time: "12:00 PM", day: "Wednesday" },
-    { date: "Apr 10, 2025", time: "10:00 AM", day: "Thursday" },
-    { date: "Apr 10, 2025", time: "12:00 PM", day: "Thursday" },
-    { date: "Apr 11, 2025", time: "10:00 AM", day: "Friday" },
-    { date: "Apr 11, 2025", time: "12:00 PM", day: "Friday" },
-    { date: "Apr 11, 2025", time: "7:30 PM", day: "Friday (Evening)" },
-    { date: "Apr 12, 2025", time: "2:00 PM", day: "Saturday (Matinee)" },
-    { date: "Apr 12, 2025", time: "7:30 PM", day: "Saturday (Evening)" },
-    { date: "Apr 13, 2025", time: "2:00 PM", day: "Sunday (Final Show)" },
-  ];
-
-  // Ticket pricing
-  const tickets = [
-    { type: "Adult", price: "$29.50" },
-    { type: "Concession", price: "$25.50" },
-    { type: "Group (6+)", price: "$25.50" },
-  ];
-
-  // Function to format the date without the year
-  const formatDate = (dateStr: string) => {
-    const [month, day] = dateStr.split(" ");
-    return (
-      <span>
-        {month} {day.replace(",", "")}
-      </span>
-    );
-  };
-
   return (
     <section id="shows" className="py-20 bg-white">
-      {/* Comic strip style grass lines */}
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[var(--charlie-blue)] mb-2">Show Dates</h2>
@@ -54,14 +20,16 @@ export default function ShowDatesSection() {
           {shows.map((show, index) => (
             <div
               key={index}
-              className="p-3 rounded-lg bg-gray-50 shadow-sm hover:shadow-md transition-shadow duration-300"
+              className="p-4 rounded-lg bg-gray-50 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
               <div className="flex flex-col items-center text-center">
-                <p className="text-sm font-semibold text-[var(--charlie-blue)] mb-0.5">
-                  {formatDate(show.date)}
+                <p className="text-lg font-bold text-[var(--charlie-blue)]">
+                  {show.date.toLocaleDateString("en-AU", { weekday: "short", day: "numeric", month: "short" })}
                 </p>
-                <h3 className="text-xs text-gray-600 mb-1">{show.day}</h3>
-                <p className="text-sm text-gray-800 font-semibold">{show.time}</p>
+                <p className="mt-1 text-md font-semibold text-[var(--charlie-green)]">
+                  {show.slot.time.toLocaleTimeString("en-AU", { hour: "numeric", minute: "2-digit" })}
+                </p>
+                <p className="text-xs text-gray-700">{show.slot.name}</p>
               </div>
             </div>
           ))}
@@ -74,8 +42,7 @@ export default function ShowDatesSection() {
             {tickets.map((ticket, index) => (
               <div key={index} className="text-center p-4 bg-white rounded-lg shadow-sm">
                 <h4 className="text-lg font-bold mb-2">{ticket.type}</h4>
-                <p className="text-2xl font-bold text-[var(--charlie-blue)]">{ticket.price}</p>
-                <p className="text-sm text-gray-500 mt-1">All shows</p>
+                <p className="text-2xl font-bold text-[var(--charlie-blue)]">${ticket.price}</p>
               </div>
             ))}
           </div>

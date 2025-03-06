@@ -5,34 +5,13 @@ import "@/styles/globals.css";
 import { GoogleTagManager } from '@next/third-parties/google';
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
-import { Event, WithContext } from 'schema-dts';
+import { jsonLd } from "./components/jsonld";
 import Navbar from "./components/navbar";
- 
-const jsonLd: WithContext<Event> = {
-    '@context': 'https://schema.org',
-    '@type': 'Event',
-    name: siteConfig.name,
-    description: siteConfig.description,
-    startDate: '2025-04-08T10:00:00+11:00',
-    endDate: '2025-04-13T14:00:00+11:00',
-    eventStatus: 'https://schema.org/EventScheduled',
-    location: {
-        '@type': 'Place',
-        name: 'The MC Showroom',
-        address: {
-            '@type': 'PostalAddress',
-            streetAddress: 'The Showroom, Level 1, 50 Clifton Street',
-            addressLocality: 'Prahran',
-            postalCode: '3181',
-            addressRegion: 'VIC',
-            addressCountry: 'AU',
-        },
-    },
-}
 
 export const metadata: Metadata = {
+    metadataBase: new URL(siteConfig.url),
     alternates: {
-        canonical: siteConfig.url,
+        canonical: "/",
     },
     title: {
         default: siteConfig.name,
@@ -43,10 +22,15 @@ export const metadata: Metadata = {
     keywords: siteConfig.keywords,
     openGraph: openGraph,
     icons: icons,
+    other: {
+        "facebook-domain-verification": siteConfig.facebookDomainVerification,
+    }
 };
 
 export const viewport: Viewport = {
-    themeColor: [{ media: "(prefers-color-scheme: light)", color: "#ffe01b" }],
+    themeColor: [
+        { media: "(prefers-color-scheme: light)", color: "#ffe01b" }
+    ],
 };
 
 export default function RootLayout({
