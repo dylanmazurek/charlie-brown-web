@@ -32,11 +32,12 @@ export default function TitleSection() {
       <div className="relative z-20 flex flex-col items-center justify-center text-center max-w-4xl mx-auto px-4">
         <div className="mb-8 px-16">
           <Image 
-            src="https://dylanmazurek.github.io/charlie-brown-web/logo.svg" 
+            src="logo.svg" 
             alt="Charlie Brown Logo" 
             width={340}
             height={227}
             priority={true}
+            unoptimized={true}
             className="w-[400px] h-auto drop-shadow-xl"
           />
         </div>
