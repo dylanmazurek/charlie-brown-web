@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from '@/config/site';
 import { GoogleMapsEmbed } from '@next/third-parties/google';
 
 export default function VenueSection() {
@@ -79,7 +80,7 @@ export default function VenueSection() {
                 </div>
               </div>
               
-              <button className="w-full btn-charlie mt-6 text-white">
+              <button className="w-full btn-charlie mt-6 text-white" onClick={() => window.open(siteConfig.show.bookingUrl, "_self")}>
                 Book Now
               </button>
               

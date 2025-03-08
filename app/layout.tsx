@@ -1,5 +1,6 @@
 import { fontSans } from "@/config/fonts";
-import { icons, openGraph, siteConfig } from "@/config/site";
+import { openGraph } from "@/config/opengraph";
+import { siteConfig } from "@/config/site";
 import "@/styles/cloud.css";
 import "@/styles/globals.css";
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -9,21 +10,21 @@ import { jsonLd } from "./components/jsonld";
 import Navbar from "./components/navbar";
 
 export const metadata: Metadata = {
-    metadataBase: new URL(siteConfig.url),
+    metadataBase: siteConfig.site.url,
     alternates: {
         canonical: "/",
     },
     title: {
-        default: siteConfig.name,
-        template: `%s - ${siteConfig.name}`,
+        default: siteConfig.show.name,
+        template: `%s - ${siteConfig.show.name}`,
     },
-    description: siteConfig.description,
+    description: siteConfig.show.description,
     robots: "index, follow",
-    keywords: siteConfig.keywords,
+    keywords: siteConfig.site.keywords,
     openGraph: openGraph,
-    icons: icons,
+    icons: siteConfig.icons,
     other: {
-        "facebook-domain-verification": siteConfig.facebookDomainVerification,
+        "facebook-domain-verification": siteConfig.site.verification.facebookDomainVerification,
     }
 };
 
@@ -48,7 +49,10 @@ export default function RootLayout({
                     fontSans.variable,
                 )}
             >
-                 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+                <script 
+                    type="application/ld+json" 
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} 
+                />
                 <div className="relative flex flex-col min-h-screen">
                     <Navbar />
                     {children}
