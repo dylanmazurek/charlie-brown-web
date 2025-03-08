@@ -19,7 +19,7 @@
 }
 
 .cloud {
-    background-image: url('https://dylanmazurek.github.io/charlie-brown-web/cloud.svg');
+    background-image: url(/images/cloud.svg);
     width: 340px;
     height: 220px;
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));

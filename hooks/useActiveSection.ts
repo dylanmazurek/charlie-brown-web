@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useActiveSection(sectionIds: string[], threshold: number = 0.6) {
+export function useActiveSection(sectionIds: string[], threshold: number = 0.2) {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [isManualNavigation, setIsManualNavigation] = useState(false);
 
@@ -9,7 +9,30 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.6) 
     // Don't run on server side
     if (typeof window === 'undefined') return;
 
+    // Set first section as active initially if no hash exists
+    if (!activeSection && !window.location.hash && sectionIds.length > 0) {
+      setActiveSection(sectionIds[0]);
+    }
+
     const observers: IntersectionObserver[] = [];
+    let observerOptions = {
+      threshold: [0, threshold],
+      rootMargin: '-10% 0px -60% 0px' // Less strict margin to detect sections sooner
+    };
+    
+    // Helper function to update active section and URL
+    const updateSection = (sectionId: string) => {
+      if (!isManualNavigation) {
+        setActiveSection(sectionId);
+        
+        // Update the URL hash without scrolling
+        const url = new URL(window.location.href);
+        if (url.hash !== `#${sectionId}`) {
+          url.hash = `#${sectionId}`;
+          window.history.replaceState({}, '', url.toString());
+        }
+      }
+    };
     
     // Create an observer for each section
     sectionIds.forEach(sectionId => {
@@ -18,22 +41,17 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.6) 
       if (element) {
         const observer = new IntersectionObserver(
           (entries) => {
-            entries.forEach(entry => {
-              // When section enters viewport, update active section
-              if (entry.isIntersecting && !isManualNavigation) {
-                setActiveSection(sectionId);
-                
-                // Update the URL hash without scrolling
-                const url = new URL(window.location.href);
-                url.hash = `#${sectionId}`;
-                window.history.replaceState({}, '', url.toString());
-              }
-            });
+            // Sort entries by their intersection ratio
+            const sortedEntries = [...entries].sort(
+              (a, b) => b.intersectionRatio - a.intersectionRatio
+            );
+
+            // Update with the most visible section
+            if (sortedEntries.length > 0 && sortedEntries[0].isIntersecting) {
+              updateSection(sectionId);
+            }
           },
-          { 
-            threshold, // How much of section needs to be visible
-            rootMargin: '-10% 0px -70% 0px' // Adjust this to control trigger area
-          }
+          observerOptions
         );
 
         observer.observe(element);
@@ -45,7 +63,7 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.6) 
     return () => {
       observers.forEach(observer => observer.disconnect());
     };
-  }, [sectionIds, threshold, isManualNavigation]);
+  }, [sectionIds, threshold, isManualNavigation, activeSection]);
 
   // Effect for handling hash changes in URL (when user clicks nav links)
   useEffect(() => {
@@ -71,7 +89,10 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.6) 
 
     // Initial check for hash in URL
     if (window.location.hash) {
-      handleHashChange();
+      const hash = window.location.hash.replace('#', '');
+      if (sectionIds.includes(hash)) {
+        setActiveSection(hash);
+      }
     }
 
     // Listen for hash changes
