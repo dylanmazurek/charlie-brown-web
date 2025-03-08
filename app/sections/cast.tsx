@@ -29,7 +29,7 @@ export default function CastSection() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                <h3 className="text-xl font-bold mb-1 cursor-pointer" onClick={() => window.open(member.socialLink, "_blank")}>{member.name}</h3>
                 <p className="text-[var(--charlie-blue)] font-semibold mb-3">
                   as {member.character}
                 </p>

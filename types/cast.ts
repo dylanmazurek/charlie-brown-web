@@ -3,4 +3,5 @@ export interface CastMember {
   character: string;
   bio: string;
   image: string;
+  socialLink?: string;
 }

@@ -6,6 +6,7 @@ import "@/styles/globals.css";
 import { GoogleTagManager } from '@next/third-parties/google';
 import clsx from "clsx";
 import { Metadata, Viewport } from "next";
+import Link from "next/link";
 import { jsonLd } from "./components/jsonld";
 import Navbar from "./components/navbar";
 
@@ -59,7 +60,7 @@ export default function RootLayout({
                     {/* Footer */}
                     <footer className="bg-gray-800 text-white py-8">
                         <div className="container mx-auto px-4 text-center">
-                            <p className="mb-2">Website by Dylan Mazurek</p>
+                            <p className="mb-2">Website by <Link href="https://dylanmazurek.com">Dylan Mazurek</Link></p>
                             <p className="text-sm text-gray-400">
                                 "Peanuts" characters created by Charles M. Schulz. Music and lyrics by Clark Gesner.
                             </p>
