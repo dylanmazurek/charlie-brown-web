@@ -1,12 +1,17 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { useActiveSection } from "@/hooks/useActiveSection";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  // Track active section
+  const sectionIds = ['about', 'shows', 'cast', 'venue'];
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +34,11 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
+  // Function to determine if link should be active
+  const isActive = (section: string) => {
+    return activeSection === section;
+  };
+
   return (
     <>
       <nav
@@ -45,29 +55,37 @@ export default function Navbar() {
             {/* Navigation Links */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="#about">
-                <span className={`hover:text-[var(--charlie-blue)] transition-colors ${
-                  scrolled ? "text-gray-700" : "text-white"
+                <span className={`transition-colors ${
+                  isActive('about') 
+                    ? "text-[var(--charlie-blue)] font-medium" 
+                    : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   About
                 </span>
               </Link>
               <Link href="#shows">
-                <span className={`hover:text-[var(--charlie-blue)] transition-colors ${
-                  scrolled ? "text-gray-700" : "text-white"
+                <span className={`transition-colors ${
+                  isActive('shows') 
+                    ? "text-[var(--charlie-blue)] font-medium" 
+                    : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Shows
                 </span>
               </Link>
               <Link href="#cast">
-                <span className={`hover:text-[var(--charlie-blue)] transition-colors ${
-                  scrolled ? "text-gray-700" : "text-white"
+                <span className={`transition-colors ${
+                  isActive('cast') 
+                    ? "text-[var(--charlie-blue)] font-medium" 
+                    : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Cast
                 </span>
               </Link>
               <Link href="#venue">
-                <span className={`hover:text-[var(--charlie-blue)] transition-colors ${
-                  scrolled ? "text-gray-700" : "text-white"
+                <span className={`transition-colors ${
+                  isActive('venue') 
+                    ? "text-[var(--charlie-blue)] font-medium" 
+                    : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Venue
                 </span>
@@ -119,22 +137,30 @@ export default function Navbar() {
         <div className="md:hidden fixed inset-0 z-40 pt-16 bg-white bg-opacity-98">
           <div className="flex flex-col items-center p-8 space-y-6">
             <Link href="#about" onClick={closeMobileMenu}>
-              <span className="text-gray-700 text-lg font-medium hover:text-[var(--charlie-blue)] transition-colors">
+              <span className={`text-lg font-medium transition-colors ${
+                isActive('about') ? "text-[var(--charlie-blue)]" : "text-gray-700"
+              }`}>
                 About
               </span>
             </Link>
             <Link href="#shows" onClick={closeMobileMenu}>
-              <span className="text-gray-700 text-lg font-medium hover:text-[var(--charlie-blue)] transition-colors">
+              <span className={`text-lg font-medium transition-colors ${
+                isActive('shows') ? "text-[var(--charlie-blue)]" : "text-gray-700"
+              }`}>
                 Shows
               </span>
             </Link>
             <Link href="#cast" onClick={closeMobileMenu}>
-              <span className="text-gray-700 text-lg font-medium hover:text-[var(--charlie-blue)] transition-colors">
+              <span className={`text-lg font-medium transition-colors ${
+                isActive('cast') ? "text-[var(--charlie-blue)]" : "text-gray-700"
+              }`}>
                 Cast
               </span>
             </Link>
             <Link href="#venue" onClick={closeMobileMenu}>
-              <span className="text-gray-700 text-lg font-medium hover:text-[var(--charlie-blue)] transition-colors">
+              <span className={`text-lg font-medium transition-colors ${
+                isActive('venue') ? "text-[var(--charlie-blue)]" : "text-gray-700"
+              }`}>
                 Venue
               </span>
             </Link>
