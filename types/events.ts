@@ -11,4 +11,5 @@ export interface Show {
   date: Date;
   slot: Slot;
   duration: Duration;
+  showBookingId: number;
 }

@@ -13,7 +13,7 @@ export interface SiteConfig {
         description: string;
         duration: string;
         ageRecommendation: string;
-        bookingUrl: string;
+        showEventId: number;
     };
     producer: {
         name: string;

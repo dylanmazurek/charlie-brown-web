@@ -49,7 +49,7 @@ export default function ShowDatesSection() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(siteConfig.show.bookingUrl, "_self")}>
+            <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
               Purchase Tickets
             </button>
           </div>

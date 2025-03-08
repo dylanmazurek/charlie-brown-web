@@ -80,7 +80,7 @@ export default function VenueSection() {
                 </div>
               </div>
               
-              <button className="w-full btn-charlie mt-6 text-white" onClick={() => window.open(siteConfig.show.bookingUrl, "_self")}>
+              <button className="w-full btn-charlie mt-6 text-white" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
                 Book Now
               </button>
               

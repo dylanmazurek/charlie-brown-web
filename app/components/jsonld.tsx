@@ -14,7 +14,7 @@ export const jsonLdItems: WithContext<Event>[] = shows.map(show => {
   const durationMinutes = durationMatch ? parseInt(durationMatch[1]) : 50;
   endDateTime.setMinutes(endDateTime.getMinutes() + durationMinutes);
   
-  return {
+  var newEvent: WithContext<Event> = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: siteConfig.show.name,
@@ -41,15 +41,16 @@ export const jsonLdItems: WithContext<Event>[] = shows.map(show => {
       lowPrice: Math.min(...tickets.map(ticket => ticket.price)),
       highPrice: Math.max(...tickets.map(ticket => ticket.price)),
       availability: 'https://schema.org/InStock',
-      url: siteConfig.show.bookingUrl,
+      url: `https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`,
+      validFrom: new Date('2025-03-01').toISOString(),
       offers: tickets.map(ticket => ({
         '@type': 'Offer',
         name: ticket.type,
         price: ticket.price,
         priceCurrency: 'AUD',
         availability: 'https://schema.org/InStock',
-        url: siteConfig.show.bookingUrl,
-        validFrom: new Date('2022-01-01').toISOString(),
+        url: `https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions/${show.showBookingId}`,
+        validFrom: new Date('2025-03-01').toISOString(),
       })),
     },
     image: [`${siteConfig.site.url}/og-charlie-image.png`],
@@ -68,6 +69,8 @@ export const jsonLdItems: WithContext<Event>[] = shows.map(show => {
       url: siteConfig.producer.website,
     },
   };
+
+  return newEvent;
 });
 
 export const jsonLd = jsonLdItems;

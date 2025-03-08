@@ -90,7 +90,7 @@ export default function Navbar() {
                   Venue
                 </span>
               </Link>
-              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={() => window.open(siteConfig.show.bookingUrl, "_self")}>
+              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
                 Get Tickets
               </button>
             </div>
@@ -164,7 +164,7 @@ export default function Navbar() {
                 Venue
               </span>
             </Link>
-            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={() => window.open(siteConfig.show.bookingUrl, "_self")}>
+            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
               Get Tickets
             </button>
           </div>

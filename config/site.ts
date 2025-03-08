@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
     description: "A musical comedy with music and lyrics by Clark Gesner, based on the characters created by Charles M. Schulz in his comic strip Peanuts.",
     duration: "60 minutes",
     ageRecommendation: "5+",
-    bookingUrl: "https://www.trybooking.com/events/1320175/sessions",
+    showEventId: 1320175,
   },
   producer: {
     name: "StageBugs Productions",

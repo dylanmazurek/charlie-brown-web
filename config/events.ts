@@ -8,16 +8,16 @@ export const slots: Slot[] = [
 ];
 
 export const shows: Show[] = [
-  { id: 1, date: new Date("2025-04-08"), slot: slots[0], duration: "P50M" },
-  { id: 2, date:  new Date("2025-04-08"), slot: slots[1], duration: "P50M" },
-  { id: 3, date:  new Date("2025-04-09"), slot: slots[0], duration: "P50M" },
-  { id: 4, date:  new Date("2025-04-09"), slot: slots[1], duration: "P50M" },
-  { id: 5, date:  new Date("2025-04-10"), slot: slots[0], duration: "P50M" },
-  { id: 6, date:  new Date("2025-04-10"), slot: slots[1], duration: "P50M" },
-  { id: 7, date:  new Date("2025-04-11"), slot: slots[0], duration: "P50M" },
-  { id: 8, date:  new Date("2025-04-11"), slot: slots[1], duration: "P50M" },
-  { id: 9, date:  new Date("2025-04-11"), slot: slots[3], duration: "P50M" },
-  { id: 10, date:  new Date("2025-04-12"), slot: slots[2], duration: "P50M" },
-  { id: 11, date:  new Date("2025-04-12"), slot: slots[3], duration: "P50M" },
-  { id: 12, date:  new Date("2025-04-13"), slot: slots[2], duration: "P50M" },
+  { id: 1, date: new Date("2025-04-08"), slot: slots[0], duration: "P50M", showBookingId: 5214399 },
+  { id: 2, date:  new Date("2025-04-08"), slot: slots[1], duration: "P50M", showBookingId: 5369630 },
+  { id: 3, date:  new Date("2025-04-09"), slot: slots[0], duration: "P50M", showBookingId: 5217676 },
+  { id: 4, date:  new Date("2025-04-09"), slot: slots[1], duration: "P50M", showBookingId: 5369631 },
+  { id: 5, date:  new Date("2025-04-10"), slot: slots[0], duration: "P50M", showBookingId:5217677  },
+  { id: 6, date:  new Date("2025-04-10"), slot: slots[1], duration: "P50M", showBookingId: 5369632 },
+  { id: 7, date:  new Date("2025-04-11"), slot: slots[0], duration: "P50M", showBookingId: 5217678 },
+  { id: 8, date:  new Date("2025-04-11"), slot: slots[1], duration: "P50M", showBookingId: 5369633 },
+  { id: 9, date:  new Date("2025-04-11"), slot: slots[3], duration: "P50M", showBookingId: 5217533 },
+  { id: 10, date:  new Date("2025-04-12"), slot: slots[2], duration: "P50M", showBookingId: 5217529 },
+  { id: 11, date:  new Date("2025-04-12"), slot: slots[3], duration: "P50M", showBookingId: 5217534 },
+  { id: 12, date:  new Date("2025-04-13"), slot: slots[2], duration: "P50M", showBookingId: 5217530 },
 ];
