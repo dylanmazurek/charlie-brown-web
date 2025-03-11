@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.charliebrownthemusical.com/sitemap.xml
+Sitemap: https://charliebrownthemusical.com/sitemap.xml

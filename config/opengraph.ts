@@ -9,7 +9,7 @@ export const openGraph: OpenGraph = {
   siteName: siteConfig.show.name,
   images: [
     {
-      url: "/og-charlie-image.png",
+      url: `${siteConfig.site.url}/og-charlie-image.png`,
       width: 1200,
       height: 630,
       alt: siteConfig.show.name,

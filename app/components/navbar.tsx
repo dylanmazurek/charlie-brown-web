@@ -2,6 +2,7 @@
 
 import { siteConfig } from "@/config/site";
 import { useActiveSection } from "@/hooks/useActiveSection";
+import { analytics } from "@/utils/analytics";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -37,6 +38,12 @@ export default function Navbar() {
   // Function to determine if link should be active
   const isActive = (section: string) => {
     return activeSection === section;
+  };
+
+  // Handle ticket button click with analytics
+  const handleTicketButtonClick = () => {
+    analytics.trackButtonClick('Get Tickets', 'Navigation');
+    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
   };
 
   return (
@@ -90,7 +97,7 @@ export default function Navbar() {
                   Venue
                 </span>
               </Link>
-              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
+              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={handleTicketButtonClick}>
                 Get Tickets
               </button>
             </div>
@@ -164,7 +171,7 @@ export default function Navbar() {
                 Venue
               </span>
             </Link>
-            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
+            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={handleTicketButtonClick}>
               Get Tickets
             </button>
           </div>

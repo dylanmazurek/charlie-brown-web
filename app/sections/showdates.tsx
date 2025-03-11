@@ -3,8 +3,14 @@
 import { shows } from "@/config/events";
 import { siteConfig } from "@/config/site";
 import { tickets } from "@/config/tickets";
+import { analytics } from "@/utils/analytics";
 
 export default function ShowDatesSection() {
+  const handlePurchaseTicketsClick = () => {
+    analytics.trackButtonClick('Purchase Tickets', 'Show Dates Section');
+    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
+  };
+
   return (
     <section id="shows" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -49,7 +55,7 @@ export default function ShowDatesSection() {
             ))}
           </div>
           <div className="mt-8 text-center">
-            <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
+            <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={handlePurchaseTicketsClick}>
               Purchase Tickets
             </button>
           </div>

@@ -1,4 +1,3 @@
-
 import { SiteConfig } from "@/types/config";
 
 export const siteConfig: SiteConfig = {

@@ -1,9 +1,15 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { analytics } from "@/utils/analytics";
 import Image from "next/image";
 
 export default function TitleSection() {
+  const handleTicketClick = () => {
+    analytics.trackButtonClick('Get Tickets', 'Title Section');
+    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
+  };
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 h-screen relative overflow-hidden">
       {/* Sky background with clouds */}
@@ -50,7 +56,7 @@ export default function TitleSection() {
             The MC Showroom, Melbourne
           </p>
           
-          <button className="btn-charlie text-white py-3 px-10 text-lg" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
+          <button className="btn-charlie text-white py-3 px-10 text-lg" onClick={handleTicketClick}>
             Get Tickets
           </button>
         </div>

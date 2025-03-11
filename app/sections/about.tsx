@@ -1,8 +1,14 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { analytics } from "@/utils/analytics";
 
 export default function AboutSection() {
+  const handleBookNowClick = () => {
+    analytics.trackButtonClick('Book Now', 'About Section');
+    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
+  };
+
   return (
     <section id="about" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -53,7 +59,7 @@ export default function AboutSection() {
                 Additional Music and Lyrics by Andrew Lippa.
               </p>
               <div className="mt-8 text-center">
-                <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={() => window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self")}>
+                <button className="btn-charlie text-white py-3 px-8 text-lg" onClick={handleBookNowClick}>
                   Book Now
                 </button>
               </div>
