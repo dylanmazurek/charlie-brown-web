@@ -1,3 +1,4 @@
+import { analytics } from '@/utils/analytics';
 import { useEffect, useState } from 'react';
 
 export function useActiveSection(sectionIds: string[], threshold: number = 0.2) {
@@ -24,6 +25,8 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.2) 
     const updateSection = (sectionId: string) => {
       if (!isManualNavigation) {
         setActiveSection(sectionId);
+
+        analytics.trackSectionView(sectionId);
         
         // Update the URL hash without scrolling
         const url = new URL(window.location.href);
@@ -49,6 +52,7 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.2) 
             // Update with the most visible section
             if (sortedEntries.length > 0 && sortedEntries[0].isIntersecting) {
               updateSection(sectionId);
+              analytics.trackSectionView(sectionId);
             }
           },
           observerOptions
@@ -79,6 +83,7 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.2) 
       
       if (sectionIds.includes(hash)) {
         setActiveSection(hash);
+        analytics.trackSectionView(hash);
       }
       
       // Reset the flag after a short delay to allow scrolling to complete
@@ -92,6 +97,7 @@ export function useActiveSection(sectionIds: string[], threshold: number = 0.2) 
       const hash = window.location.hash.replace('#', '');
       if (sectionIds.includes(hash)) {
         setActiveSection(hash);
+        analytics.trackSectionView(hash);
       }
     }
 
