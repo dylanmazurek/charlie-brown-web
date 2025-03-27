@@ -54,7 +54,7 @@ export default function Navbar() {
               <Link href="#about">
                 <span className={`transition-colors ${
                   isActive('about') 
-                    ? "text-[var(--charlie-blue)] font-medium" 
+                    ? "text-[var(--charlie-dark-blue)] font-medium" 
                     : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   About
@@ -63,7 +63,7 @@ export default function Navbar() {
               <Link href="#shows">
                 <span className={`transition-colors ${
                   isActive('shows') 
-                    ? "text-[var(--charlie-blue)] font-medium" 
+                    ? "text-[var(--charlie-dark-blue)] font-medium" 
                     : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Shows
@@ -72,7 +72,7 @@ export default function Navbar() {
               <Link href="#cast">
                 <span className={`transition-colors ${
                   isActive('cast') 
-                    ? "text-[var(--charlie-blue)] font-medium" 
+                    ? "text-[var(--charlie-dark-blue)] font-medium" 
                     : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Cast
