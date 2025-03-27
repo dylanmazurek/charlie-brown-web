@@ -1,4 +1,6 @@
 import { SiteConfig } from "@/types/config";
+import { cast } from "./cast";
+import { event } from "./shows";
 
 export const siteConfig: SiteConfig = {
   site: {
@@ -13,7 +15,8 @@ export const siteConfig: SiteConfig = {
     description: "A musical comedy with music and lyrics by Clark Gesner, based on the characters created by Charles M. Schulz in his comic strip Peanuts.",
     duration: "60 minutes",
     ageRecommendation: "5+",
-    showEventId: 1320175,
+    event: event,
+    cast: cast,
   },
   producer: {
     name: "StageBugs Productions",
@@ -32,9 +35,7 @@ export const siteConfig: SiteConfig = {
       "There are 25 steps (including two landings) and handrails on both sides from the street to the foyer, with no lift access.",
       "There is unfixed raked seating with a floor level stage.",
       "The closest accessible parking bays are in Care Park on King Street which is a two minutes walk from the theatre."
-    ],
-    showDuration: "60 minutes",
-    ageRecommendation: "5+"
+    ]
   },
   icons: {
     icon: "/favicon.ico",

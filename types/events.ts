@@ -1,15 +1,24 @@
-import { Duration } from "schema-dts";
+import { Duration, Time } from "schema-dts";
 
-export interface Slot {
-  id: number;
-  name: string;
-  time: Date;
+export interface ShowEvent {
+  id: string;
+  sessions: Session[];
+  ticketGroups: TicketGroup[];
 }
 
-export interface Show {
-  id: number;
+export interface Session {
+  id: string;
   date: Date;
-  slot: Slot;
   duration: Duration;
-  showBookingId: number;
+}
+
+export interface Period {
+  startTime: Time;
+  endTime: Time;
+  description: string;
+}
+
+export interface TicketGroup {
+  description: string;
+  price: number;
 }

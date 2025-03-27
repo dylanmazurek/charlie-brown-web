@@ -1,4 +1,6 @@
 import { Icons } from "next/dist/lib/metadata/types/metadata-types";
+import { CastMember } from "./cast";
+import { ShowEvent } from "./events";
 
 export interface SiteConfig {
     site: {
@@ -13,7 +15,8 @@ export interface SiteConfig {
         description: string;
         duration: string;
         ageRecommendation: string;
-        showEventId: number;
+        event: ShowEvent;
+        cast: CastMember[];
     };
     producer: {
         name: string;
@@ -29,8 +32,6 @@ export interface SiteConfig {
             addressCountry: string;
         };
         accessibility: string[];
-        showDuration: string;
-        ageRecommendation: string;
     };
     icons: Icons;
 }

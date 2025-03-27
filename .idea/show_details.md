@@ -10,8 +10,6 @@ Don't miss your chance – grab tickets today and join us for this special anniv
 
 'A bright, bubbly and utterly charming musical.' Weekend Notes
 
-'Terrific entertainment for anyone who ever was a child!' Man in Chair
-
 'Delightful in every way!' Lilithia Reviews
 
 Based on The Comic Strip Peanuts by Charles M. Schulz.
@@ -27,29 +25,30 @@ Suitable for audiences 5+
 # Show dates
 
 all dates in 2025
-- Tue 8 Apr: 10am;
-- Tue 8 Apr: 12pm;
-- Wed 9 Apr: 10am;
-- Wed 9 Apr: 12pm;
-- Thu 10 Apr: 10am;
-- Thu 10 Apr: 12pm;
-- Fri 11 Apr: 10am;
-- Fri 11 Apr: 12pm;
-- Fri 11 Apr: 7.30pm;
-- Sat 12 Apr: 2pm;
-- Sat 12 Apr: 7.30pm;
+
+- Tue 8 Apr: 10am
+- Tue 8 Apr: 12pm
+- Wed 9 Apr: 10am
+- Wed 9 Apr: 12pm
+- Thu 10 Apr: 10am
+- Thu 10 Apr: 12pm
+- Fri 11 Apr: 10am
+- Fri 11 Apr: 12pm
+- Fri 11 Apr: 7.30pm
+- Sat 12 Apr: 2pm
+- Sat 12 Apr: 7.30pm
 - Sun 13 Apr: 2pm
 
 # Tickets
 
 Adult:
-All Tix $29.50
+$29.50
 
 Concession:
-All Tix $25.50
+$25.50
 
 Group (6+):
-All Tix $25.50
+$25.50
 
 # Venue
 

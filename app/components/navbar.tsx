@@ -1,8 +1,7 @@
 "use client";
 
-import { siteConfig } from "@/config/site";
 import { useActiveSection } from "@/hooks/useActiveSection";
-import { analytics } from "@/utils/analytics";
+import { handleBookClick } from "@/utils/booking";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -10,7 +9,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
-  // Track active section
   const sectionIds = ['about', 'shows', 'cast', 'venue'];
   const activeSection = useActiveSection(sectionIds);
 
@@ -35,17 +33,9 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  // Function to determine if link should be active
   const isActive = (section: string) => {
     return activeSection === section;
   };
-
-  // Handle ticket button click with analytics
-  const handleTicketButtonClick = () => {
-    analytics.trackButtonClick('Get Tickets', 'Navigation');
-    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
-  };
-
   return (
     <>
       <nav
@@ -91,13 +81,13 @@ export default function Navbar() {
               <Link href="#venue">
                 <span className={`transition-colors ${
                   isActive('venue') 
-                    ? "text-[var(--charlie-blue)] font-medium" 
+                    ? "text-[var(--charlie-dark-blue)] font-medium" 
                     : scrolled ? "text-gray-700" : "text-white"
                 }`}>
                   Venue
                 </span>
               </Link>
-              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={handleTicketButtonClick}>
+              <button className="btn-charlie text-white text-sm py-2 px-4" onClick={() => handleBookClick('Navbar')}>
                 Get Tickets
               </button>
             </div>
@@ -171,7 +161,7 @@ export default function Navbar() {
                 Venue
               </span>
             </Link>
-            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={handleTicketButtonClick}>
+            <button className="btn-charlie text-white py-3 px-8 w-full max-w-xs mt-4" onClick={() => handleBookClick('Navbar')}>
               Get Tickets
             </button>
           </div>

@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Updated modern color scheme */
 :root {
   --charlie-yellow: #FFE659;
   --charlie-blue: #4A72D1;
+  --charlie-dark-blue: #2E3A59;
   --charlie-green: #3E935B;
   --btn-gradient: linear-gradient(to right, #4A72D1, #5C82D9);
 }
@@ -19,13 +19,11 @@
   background-color: var(--charlie-green);
 }
 
-/* Background color for the website */
 .charlie-brown-bg {
   background-color: var(--charlie-yellow);
   opacity: 0.95;
 }
 
-/* Button styles */
 .btn-charlie {
   @apply px-6 py-3 rounded-full font-bold transition-all duration-300;
   background: var(--btn-gradient);

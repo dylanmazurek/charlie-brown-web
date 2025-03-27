@@ -1,36 +1,31 @@
 "use client";
 
+import { getSeasonPeriod } from '@/config/shows';
 import { siteConfig } from '@/config/site';
-import { analytics } from "@/utils/analytics";
+import { handleBookClick } from '@/utils/booking';
 import { GoogleMapsEmbed } from '@next/third-parties/google';
 
-export default function VenueSection() {
-  const handleBookNowClick = () => {
-    analytics.trackButtonClick('Book Now', 'Venue Section');
-    window.open(`https://www.trybooking.com/events/${siteConfig.show.showEventId}/sessions`, "_self");
-  };
-  
+export default function VenueSection() {  
   return (
     <section id="venue" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[var(--charlie-blue)] mb-2">Venue Information</h2>
           <p className="text-xl text-gray-600">
-            The MC Showroom, Prahran
+            { siteConfig.venue.name }, { siteConfig.venue.address.addressLocality }
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Venue Information */}
           <div className="bg-gray-50 p-8 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold mb-4 text-[var(--charlie-green)]">The MC Showroom</h3>
+            <h3 className="text-2xl font-bold mb-4 text-[var(--charlie-green)]">{ siteConfig.venue.name }</h3>
             <p className="text-gray-700 mb-4">
-              The Showroom, Level 1, 50 Clifton Street, Prahran
+              { siteConfig.venue.address.streetAddress } { siteConfig.venue.address.addressLocality } { siteConfig.venue.address.postalCode }
             </p>
             
             <div className="mb-6">
               <h4 className="font-semibold text-[var(--charlie-blue)] mb-2">Performance Dates</h4>
-              <p className="text-gray-700">April 8-13, 2025</p>
+              <p className="text-gray-700">{getSeasonPeriod()}</p>
             </div>
             
             <div className="mb-6">
@@ -45,15 +40,13 @@ export default function VenueSection() {
             <div>
               <h4 className="font-semibold text-[var(--charlie-blue)] mb-2">Additional Information</h4>
               <p className="text-gray-700">
-                Duration: 60 minutes<br />
-                Suitable for audiences 5+
+                Duration: { siteConfig.show.duration }<br />
+                Suitable for audiences { siteConfig.show.ageRecommendation }
               </p>
             </div>
           </div>
 
-          {/* Map & Ticket Info */}
           <div className="flex flex-col h-full">
-            {/* Embedded map - placeholder */}
             <div className="bg-gray-100 h-64 mb-6 rounded-lg overflow-hidden shadow-md">
               <div className="flex w-full h-full items-center justify-center">
               <GoogleMapsEmbed
@@ -67,26 +60,19 @@ export default function VenueSection() {
               </div>
             </div>
             
-            {/* Ticket information */}
             <div className="bg-gray-50 p-6 rounded-lg shadow-md flex-grow">
               <h3 className="text-xl font-bold mb-4 text-[var(--charlie-blue)]">Ticket Information</h3>
               
               <div className="space-y-4">
-                <div className="flex justify-between items-center pb-2 border-b border-gray-200">
-                  <span className="font-medium">Adult</span>
-                  <span className="font-bold">$29.50</span>
-                </div>
-                <div className="flex justify-between items-center pb-2 border-b border-gray-200">
-                  <span className="font-medium">Concession</span>
-                  <span className="font-bold">$25.50</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-medium">Group (6+)</span>
-                  <span className="font-bold">$25.50</span>
-                </div>
+                {siteConfig.show.event.ticketGroups.map((ticketGroup, index) => (
+                  <div key={index} className="flex justify-between">
+                    <p className="text-gray-700">{ticketGroup.description}</p>
+                    <p className="text-gray-700">${ticketGroup.price}</p>
+                  </div>
+                ))}
               </div>
               
-              <button className="w-full btn-charlie mt-6 text-white" onClick={handleBookNowClick}>
+              <button className="w-full btn-charlie mt-6 text-white" onClick={() => handleBookClick('Venue')}>
                 Book Now
               </button>
               
