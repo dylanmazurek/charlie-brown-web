@@ -1,5 +1,18 @@
 import { siteConfig } from "@/config/site";
-import { Event, PerformingGroup, Place, WithContext } from 'schema-dts';
+import { Event, Offer, PerformingGroup, Place, WithContext } from 'schema-dts';
+
+const ticketOffers: Offer[] = siteConfig.show.event.ticketGroups.map(ticketGroup => {
+    var newOffer: Offer = {
+        '@type': 'Offer',
+        name: ticketGroup.description,
+        price: ticketGroup.price,
+        priceCurrency: 'AUD',
+        itemCondition: 'https://schema.org/NewCondition',
+        availability: 'https://schema.org/InStock',
+    };
+
+    return newOffer;
+});
 
 const performerList: PerformingGroup = {
     '@type': 'PerformingGroup',
@@ -15,23 +28,23 @@ const performerList: PerformingGroup = {
 
 const location: Place = {
     '@type': 'Place',
-    name: 'The MC Showroom',
+    name: siteConfig.venue.name,
     address: {
         '@type': 'PostalAddress',
-        streetAddress: 'The Showroom, Level 1, 50 Clifton Street',
-        addressLocality: 'Prahran',
-        postalCode: '3181',
-        addressRegion: 'VIC',
-        addressCountry: 'AU',
+        streetAddress: siteConfig.venue.address.streetAddress,
+        addressLocality: siteConfig.venue.address.addressLocality,
+        postalCode: siteConfig.venue.address.postalCode,
+        addressRegion: siteConfig.venue.address.addressRegion,
+        addressCountry: siteConfig.venue.address.addressCountry,
     },
 };
 
-export const jsonLdItems: WithContext<Event>[] = siteConfig.show.event.sessions.map(show => {
-  const startDateTime = new Date(show.date);
-  startDateTime.setHours(show.date.getHours(), show.date.getMinutes());
+export const jsonLdItems: WithContext<Event>[] = siteConfig.show.event.sessions.map(session => {
+  const startDateTime = new Date(session.date);
+  startDateTime.setHours(session.date.getHours(), session.date.getMinutes());
   
   const endDateTime = new Date(startDateTime);
-  const durationStr = String(show.duration);
+  const durationStr = String(session.duration);
   const durationMatch = durationStr.match(/P(\d+)M/);
   const durationMinutes = durationMatch ? parseInt(durationMatch[1]) : 50;
   endDateTime.setMinutes(endDateTime.getMinutes() + durationMinutes);
@@ -45,6 +58,8 @@ export const jsonLdItems: WithContext<Event>[] = siteConfig.show.event.sessions.
     endDate: endDateTime.toISOString(),
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    url: `https://www.trybooking.com/events/${siteConfig.show.event.id}/sessions/${session.id}`,
+    offers: ticketOffers,
     location: location,
     image: [`${siteConfig.site.url}/og-charlie-image.png`],
     performer: performerList,
