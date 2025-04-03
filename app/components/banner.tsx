@@ -2,10 +2,9 @@
 
 import { siteConfig } from '@/config/site';
 
-export default function Banner({ left, top, duration, delay }: { left: number, top: number, duration: number, delay: number }) {
+export default function Banner({ top, duration, delay }: { top: number, duration: number, delay: number }) {
     let divStyle: React.CSSProperties = {
         position: 'absolute',
-        left: `${left}%`,
         top: `${top}%`,
         animation: `animateBanner ${duration}s linear infinite`,
         animationDelay: `${delay}s`

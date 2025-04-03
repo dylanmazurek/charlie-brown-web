@@ -4,7 +4,7 @@ export default function Clouds() {
     return (
         <div className="absolute top-0 left-0 w-full h-[calc(100%-6rem)] bg-sky z-0 overflow-hidden">
             <div className="absolute inset-0 pointer-events-none opacity-90">
-                <Banner left={-50} top={10} duration={15} delay={0} />
+                <Banner top={10} duration={15} delay={0} />
                 <Cloud left={-10} top={0} duration={35} delay={-5} />
                 <Cloud left={40} top={5} duration={40} delay={-15} />
                 <Cloud left={-5} top={36} duration={45} delay={-25} />
