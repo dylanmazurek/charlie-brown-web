@@ -2,6 +2,7 @@ import { fontSans } from "@/config/fonts";
 import { openGraph } from "@/config/opengraph";
 import { siteConfig } from "@/config/site";
 import "@/styles/cloud.css";
+import "@/styles/countdown.css";
 import "@/styles/globals.css";
 import { GoogleTagManager } from '@next/third-parties/google';
 import clsx from "clsx";
@@ -41,7 +42,7 @@ export default function RootLayout({
 }) {
     return (
         <html suppressHydrationWarning lang="en" className="scroll-smooth">
-            <GoogleTagManager gtmId="GTM-KCBHKCBR" />
+            <GoogleTagManager gtmId={siteConfig.site.verification.googleTagManager} />
             <head />
             <body
                 className={clsx(

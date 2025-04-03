@@ -7,6 +7,7 @@ export interface SiteConfig {
         url: URL;
         keywords: string[];
         verification: {
+            googleTagManager: string;
             facebookDomainVerification: string;
         };
     };

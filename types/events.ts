@@ -21,4 +21,5 @@ export interface Period {
 export interface TicketGroup {
   description: string;
   price: number;
+  validFrom: Date;
 }

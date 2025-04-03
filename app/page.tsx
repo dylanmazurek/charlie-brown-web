@@ -9,14 +9,16 @@ import VideoSection from "./sections/video";
 
 export default function Home() {
   return (
-    <main>
-      <TitleSection />
-      <VideoSection />
-      <AboutSection />
-      <ShowDatesSection />
-      <CastSection />
-      <VenueSection />
-      <Footer />
-    </main>
+    <>
+      <main>
+        <TitleSection />
+        <VideoSection />
+        <AboutSection />
+        <ShowDatesSection />
+        <CastSection />
+        <VenueSection />
+        <Footer />
+      </main>
+    </>
   );
 }

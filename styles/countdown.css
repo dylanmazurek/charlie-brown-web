@@ -1,0 +1,56 @@
+@keyframes animateBanner {
+    0% {
+        transform: translateX(-50%) scale(var(--cloud-scale, 1)) translateY(-10px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translateX(0%) scale(var(--cloud-scale, .6)) translateY(10px) rotate(5deg);
+    }
+
+    65% {
+        transform: translateX(50%) scale(var(--cloud-scale, 1.4)) translateY(-8px) rotate(-1deg);
+    }
+
+    100% {
+        transform: translateX(110%) scale(var(--cloud-scale, .6)) translateY(0);
+        opacity: 0;
+    }
+}
+
+.banner {
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 2rem;
+    font-weight: 600;
+    width: 380px;
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    animation: animateBanner 20s linear infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    z-index: 1;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    z-index: 1;
+}

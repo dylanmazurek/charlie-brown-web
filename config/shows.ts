@@ -15,9 +15,9 @@ export function getPeriod(date: Date): string {
 }
 
 const ticketGroups: TicketGroup[] = [
-  { description: "Adult", price: 29.50 },
-  { description: "Concession", price: 25.50 },
-  { description: "Group (6+)", price: 25.50 },
+  { description: "Adult", price: 29.50, validFrom: new Date("2025-04-01T00:00:00+10:00") },
+  { description: "Concession", price: 25.50, validFrom: new Date("2025-04-01T00:00:00+10:00") },
+  { description: "Group (6+)", price: 25.50, validFrom: new Date("2025-04-01T00:00:00+10:00") },
 ];
 
 const sessions: Session[] = [

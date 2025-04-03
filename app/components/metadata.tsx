@@ -9,6 +9,8 @@ const ticketOffers: Offer[] = siteConfig.show.event.ticketGroups.map(ticketGroup
         priceCurrency: 'AUD',
         itemCondition: 'https://schema.org/NewCondition',
         availability: 'https://schema.org/InStock',
+        validFrom: ticketGroup.validFrom.toISOString(),
+        url: `https://www.trybooking.com/events/${siteConfig.show.event.id}/sessions`,
     };
 
     return newOffer;

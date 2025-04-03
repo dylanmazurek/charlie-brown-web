@@ -7,6 +7,7 @@ export const siteConfig: SiteConfig = {
     url: new URL("https://charliebrownthemusical.com"),
     keywords: ["musical", "comedy", "peanuts", "charlie brown", "snoopy", "lucy", "linus", "schroeder", "sally", "woodstock", "school holidays", "kids", "family", "theatre", "show", "performance", "play", "stage", "live", "event", "tickets", "book", "buy", "purchase", "prahran", "melbourne", "victoria", "australia"],
     verification: {
+      googleTagManager: "GTM-KCBHKCBR",
       facebookDomainVerification: "xsv4swmk8g4fh6nunfkhaclh60sv52",
     }
   },
